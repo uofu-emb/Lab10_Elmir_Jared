@@ -24,7 +24,7 @@ endif()
 if(DEFINED ENV{PICO_EXTRAS_PATH})
     set(PICO_EXTRAS_PATH $ENV{PICO_EXTRAS_PATH})
 else()
-    set(PICO_EXTRAS_PATH lib/pico-extras)
+    set(PICO_EXTRAS_PATH ${CMAKE_SOURCE_DIR}/lib/pico-extras)
 endif()
 
 if(DEFINED ENV{UNITY_PATH})
@@ -71,6 +71,8 @@ include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 
 # The main executable is defined inside the src directory.
 add_subdirectory(src)
+
+#add_subdirectory(${PICO_EXTRAS_PATH} pico_extras)
 
 # The test configuration is inside the test directory.
 include(CTest)
